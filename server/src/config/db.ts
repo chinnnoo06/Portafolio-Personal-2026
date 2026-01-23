@@ -4,7 +4,13 @@ import colors from 'colors'
 export const connectDB = async () => {
 
     try {
-        const connection = await mongoose.connect("mongodb://localhost:27017/portafolio_web");
+        const mongoUri = process.env.MONGO_URI;
+
+        if (!mongoUri) {
+            throw new Error("MONGO_URI no está definida en el .env");
+        }
+
+        const connection = await mongoose.connect(mongoUri);
         const url = `${connection.connection.host}: ${connection.connection.port}`
         console.log(colors.cyan.bold(`Conectado correctamente a la base de datos portafolio_web en: ${url}`));
     } catch (error) {
