@@ -1,0 +1,2 @@
+export const inputStyle = 
+'w-full px-4 py-3 rounded-xl bg-transparent text-[#dde1e9] border-2 border-[#dde1e9]/30 placeholder-[#dde1e9] focus:outline-none focus:border-[#b03a3a]  transition-all duration-300 text-xs sm:text-sm lg:text-base hover:border-[#b03a3a]/80'

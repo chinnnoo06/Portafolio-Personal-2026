@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  /* Font family */
+  --font-poppins: "Poppins", sans-serif;
+}
+
+
+.background-dark {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(221, 225, 233, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 80% 70%, rgba(176, 58, 58, 0.12) 0%, transparent 30%),
+    linear-gradient(135deg, #272727, #1a1a1a, #272727);
+  background-size: 400% 400%;
+  background-repeat: no-repeat;
+  animation: animateBackground 18s ease infinite;
+  background-attachment: fixed;
+}
+
+.background-light {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(221, 225, 233, 0.08) 0%, transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(176, 58, 58, 0.12) 0%, transparent 40%),
+    linear-gradient(135deg, #ffffff, #dde1e9, #ffffff);
+  background-size: 400% 400%;
+  background-repeat: no-repeat;
+  animation: animateBackground 16s ease-in-out infinite;
+  background-attachment: fixed;
+}
+
+
+@keyframes animateBackground{
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Efecto de cursor futurista */
+.cursor-trail {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  filter: blur(1px);
+  background-color: rgba(236, 72, 72, 0.7);
+  mix-blend-mode: normal;
+  animation: dustFade 0.8s ease-out forwards;
+}
+
+@keyframes dustFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3);
+  }
+}
+
+.toast-success {
+  color: #b03a3a !important;
+}
+
+/* ICONO */
+.toast-success .Toastify__toast-icon svg {
+  fill: #b03a3a !important;
+}
+
+/* BARRA QUE AVANZA */
+.toast-success .Toastify__progress-bar {
+  background-color: #b03a3a !important;
+}
+
+/* RASTRO / TRACK (EL VERDE PROBLEMÁTICO) */
+.toast-success .Toastify__progress-bar--success {
+  background-color: #b03a3a !important;
+}
+
+
+.spinner {
+  margin: 100px auto 0;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #272727;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
