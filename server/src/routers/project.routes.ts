@@ -7,18 +7,19 @@ import { ProjectController } from '../controllers/project.controller';
 import { body, param } from 'express-validator';
 import { handleInputErrors } from '../middleware/handleInputErrors';
 import { converToWebP } from '../middleware/convertToWebP';
+import { UPLOADS_PATH } from "../config/env";
+
+const projectsDir = path.resolve(UPLOADS_PATH, "projects");
 
 const router = express.Router();
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const dir = path.join(__dirname, "../uploads/projects");
-
-        if (!fs.existsSync(dir)) { //para que si no existe la crea
-            fs.mkdirSync(dir, { recursive: true });
+        if (!fs.existsSync(projectsDir)) {
+            fs.mkdirSync(projectsDir, { recursive: true });
         }
 
-        cb(null, dir);
+        cb(null, projectsDir);
     },
     filename: (req, file, cb) => {
         if (!req.body._fileIndex) req.body._fileIndex = 0;
@@ -144,7 +145,7 @@ router.put("/update/:id",
             if (!Array.isArray(techArray)) throw new Error("Technologies debe ser un array o string separado por comas");
             return true;
         }),
-        
+
     body("excerpt")
         .notEmpty().withMessage("El excerpt del proyecto es obligatorio")
         .isString().withMessage("El excerpt debe ser un string")

@@ -11,6 +11,7 @@ import contactRoutes from './routers/contact.routes'
 import userRoutes from './routers/user.routes'
 import projectRoutes from './routers/project.routes'
 import path from 'path'
+import { UPLOADS_PATH } from './config/env'
 
 connectDB()
 
@@ -23,7 +24,7 @@ server.use(cors(corsOptions))
 // Servir archivos estáticos (uploads)
 server.use(
   '/uploads',
-  express.static(path.join(__dirname, 'uploads'))
+  express.static(UPLOADS_PATH)
 )
 
 server.use(express.json())
