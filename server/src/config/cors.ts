@@ -3,13 +3,9 @@ import { FRONTEND_URL } from "./env";
 
 export const corsOptions: CorsOptions = {
     origin: function (origin, callback) {
-
-        
-        /*// Permite Postman, Insomnia, Supertest, backend-to-backend
         if (!origin) {
             return callback(null, true);
         }
-        */
 
         // Permite tu frontend
         if (origin === FRONTEND_URL) {
