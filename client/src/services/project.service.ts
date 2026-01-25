@@ -39,7 +39,7 @@ export const getInitialsProjects = async (id?: TProject['_id']): Promise<TProjec
 
     try {
         const { data } = await axios.get(url);
-
+        
         if (data.status !== "success") {
             throw new Error("Respuesta inválida del servidor");
         }
