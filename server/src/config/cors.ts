@@ -14,5 +14,6 @@ export const corsOptions: CorsOptions = {
 
         // Bloquea navegadores no autorizados
         return callback(new Error("Error de CORS"), false);
-    }
+    },
+    credentials: true,
 }
