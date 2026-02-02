@@ -17,6 +17,7 @@ import {
   SiPostgresql,
   SiJavascript,
   SiTypescript,
+  SiNextdotjs,
 } from 'react-icons/si'
 
 export const TECHNOLOGIES_MAP: Record<
@@ -37,6 +38,10 @@ export const TECHNOLOGIES_MAP: Record<
   },
   react: {
     icon: <FaReact className="text-[#61dafb]" />,
+    label: 'React',
+  },
+  nextjs: {
+    icon: <SiNextdotjs className="text-white" />,
     label: 'React',
   },
   bootstrap: {
