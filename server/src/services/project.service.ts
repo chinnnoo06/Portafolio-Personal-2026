@@ -7,6 +7,9 @@ import { TMongoIdParams } from "../types/mongo.types";
 import { deleteUploadedFiles, HttpError } from "../helpers";
 import { PipelineStage, Types } from "mongoose";
 import { TGetInitialProjectsParams, TGetOneProjectParams } from "../types/params.types";
+import { UPLOADS_PATH } from "../config/env";
+
+const projectsDir = path.resolve(UPLOADS_PATH, "projects");
 
 export const createdProjectService = async (data: TProject, files: Express.Multer.File[]) => {
     const baseSlug = slugify(data.name, { lower: true, strict: true })
@@ -77,7 +80,7 @@ export const updateProjectService = async (projectId: TMongoIdParams['id'], data
 
         for (const img of oldImages) {
             try {
-                const filePath = path.join(__dirname, "../uploads/projects", img);
+                const filePath = path.join(projectsDir, img);
                 fs.unlinkSync(filePath);
                 console.log("Imagen antigua eliminada:", img);
             } catch (err) {
@@ -101,7 +104,7 @@ export const deleteProjectService = async (projectId: TMongoIdParams['id']) => {
 
     for (const img of project.images) {
         try {
-            const filePath = path.join(__dirname, "../uploads/projects", img);
+            const filePath = path.join(projectsDir, img);
             fs.unlinkSync(filePath);
             console.log("Imagen antigua eliminada:", img);
         } catch (err) {
