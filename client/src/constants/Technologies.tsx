@@ -42,7 +42,7 @@ export const TECHNOLOGIES_MAP: Record<
   },
   nextjs: {
     icon: <SiNextdotjs className="text-white" />,
-    label: 'React',
+    label: 'Next.js',
   },
   bootstrap: {
     icon: <FaBootstrap className="text-[#7952b3]" />,
