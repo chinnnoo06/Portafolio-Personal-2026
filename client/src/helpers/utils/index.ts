@@ -1,5 +1,5 @@
 export const isDesktop = () =>
-  typeof window !== "undefined" && window.innerWidth >= 1024
+  typeof window !== "undefined" && window.innerWidth >= 1536
 
 export const normalizeTechKey = (tech: string) =>
   tech
